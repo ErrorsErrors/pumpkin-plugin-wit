@@ -52,7 +52,7 @@ interface java-packets {
   record handshake-s-hand-shake {
     protocol-version: s32,
     server-address: string,
-    server-port: s32,
+    server-port: u16,
     next-state: s32,
   }
   record login-s-login-cookie-response {
@@ -544,9 +544,6 @@ interface java-packets {
   record config-c-transfer {
     host: string,
     port: s32,
-  }
-  record config-c-update-tags {
-    tags: list<string>,
   }
   record login-c-login-cookie-request {
     key: string,
@@ -1541,9 +1538,6 @@ interface java-packets {
     display-name: option<string>,
     number-format: option<string>,
   }
-  record c-update-tags-play {
-    tags: list<string>,
-  }
   record c-use-bed {
     entity-id: s32,
     location: tuple<s32, s32, s32>,
@@ -1699,7 +1693,6 @@ interface java-packets {
     config-c-config-show-dialog(config-c-config-show-dialog),
     config-c-store-cookie(config-c-store-cookie),
     config-c-transfer(config-c-transfer),
-    config-c-update-tags(config-c-update-tags),
     login-c-login-cookie-request(login-c-login-cookie-request),
     login-c-encryption-request(login-c-encryption-request),
     login-c-login-disconnect(login-c-login-disconnect),
@@ -1846,7 +1839,6 @@ interface java-packets {
     c-update-objectives(c-update-objectives),
     c-update-recipes(c-update-recipes),
     c-update-score(c-update-score),
-    c-update-tags-play(c-update-tags-play),
     c-use-bed(c-use-bed),
     c-waypoint(c-waypoint),
     c-world-event(c-world-event),
